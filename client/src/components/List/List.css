@@ -1,0 +1,33 @@
+.list-flow-container {
+    max-height: 545px;
+    border: 2px black solid;
+    border-radius: 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.list-flow-container ul {
+    margin: 0;
+}
+
+.list-flow-container li {
+    border-radius: 0px;
+    border-left: none;
+    border-right: none;
+}
+
+.list-flow-container li * {
+    cursor: pointer;
+}
+
+.list-flow-container li a {
+    color: lightgoldenrodyellow;
+}
+
+.list-flow-container li:first-child {
+    border-top: none;
+}
+
+.list-flow-container li:last-child {
+    border-bottom: none;
+}
