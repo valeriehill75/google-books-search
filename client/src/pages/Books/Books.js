@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Jumbotron from "../..components/Jumbotron";
+import Jumbotron from "../../components/Jumbotron";
 import DeleteBtn from "../../components/DeleteBtn";
 import API from "../../utils/API";
 import { Col, Row, Container } from "../../components/Grid";
@@ -37,7 +37,7 @@ function Books() {
   }
   //Update State
   function handleInputChange(e) {
-    const { name, value } = event.target;
+    const { name, value } = e.target;
     setFormObject({ ...formObject, [name]: value });
   }
   //Save book data and reload
@@ -68,9 +68,10 @@ function Books() {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-6">
+        <Col size="md-12">
           <Jumbotron>
-            <h1>Perform a Google Book Search</h1>
+            <h1>(React) Google Book Search</h1>      
+            <h2>Search by Title and Author</h2>
           </Jumbotron>
           <form>
             <Input
@@ -85,24 +86,6 @@ function Books() {
               placeholder="Author (required)"
               value={formObject.author}
             />
-            <Input
-              onChange={handleInputChange}
-              name="description"
-              placeholder="Description"
-              value={formObject.description}
-            />
-            <Input
-              onChange={handleInputChange}
-              name="image"
-              placeholder="Image"
-              value={formObject.image}
-            />
-            <Input
-              onChange={handleInputChange}
-              name="link"
-              placeholder="Link"
-              value={formObject.link}
-            />
             <FormBtn
               disabled={!(formObject.author && formObject.title)}
               onClick={handleFormSubmit}
@@ -111,10 +94,7 @@ function Books() {
             </FormBtn>
           </form>
         </Col>
-        <Col size="md-6 sm-12">
-          <Jumbotron>
-            <h1>Books List:</h1>
-          </Jumbotron>
+        <Col size="md-12">
           {books.length ? (
             <List>
               {books.map((book) => {
@@ -131,7 +111,7 @@ function Books() {
               })}
             </List>
           ) : (
-            <h3>No Results</h3>
+            <h3></h3>
           )}
         </Col>
       </Row>
